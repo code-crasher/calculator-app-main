@@ -1,0 +1,244 @@
+:root {
+    --clr-main-background: hsl(0, 0%, 90%);
+    --clr-screen-background: hsl(0, 0%, 93%);
+    --clr-equal-key-background: hsl(185, 42%, 37%);
+    --clr-key-background: hsl(45, 7%, 89%);
+    --clr-key-background-toggle: hsl(25, 98%, 40%);
+    --clr-toggle-keypad-background: hsl(0, 5%, 81%);
+    --clr-text-White: hsl(0, 0%, 100%);
+    --clr-text-Very-dark-grayish-blue: hsl(60, 10%, 19%);
+    --clr-boxshadow-1: hsl(35, 11%, 61%);
+    --clr-boxshadow-2: hsl(25, 99%, 27%);
+    --clr-boxshadow-3: hsl(185, 58%, 25%);
+    --clr-header-txt: hsl(60, 10%, 19%);
+    --clr-large-btn: hsl(0, 0%, 100%);
+    --clr-hover-btn: hsl(45, 7%, 95%);
+    --clr-hover-equal-btn: hsl(25, 98%, 50%);
+    --clr-hover-reset-btn: hsl(185, 42%, 50%);
+
+
+    --step--2: clamp(0.69rem, calc(0.49rem + 0.88vw), 1.28rem);
+    --step--1: clamp(0.83rem, calc(0.56rem + 1.15vw), 1.60rem);
+    --step-0: clamp(1.00rem, calc(0.65rem + 1.50vw), 2.00rem);
+    --step-1: clamp(1.20rem, calc(0.74rem + 1.95vw), 2.50rem);
+    --step-2: clamp(1.44rem, calc(0.85rem + 2.53vw), 3.13rem);
+}
+*,
+*::after,
+*::before{
+    box-sizing: border-box;
+    margin: 0;
+    padding:0;
+    user-select: none;
+}
+body{
+    font-family: 'League Spartan', sans-serif;
+    background: var(--clr-main-background);
+    color:var(--clr-text-White);
+    height:100vh;
+    height: 100dvh;
+    width: 100vw;
+    font-size: var(--step-0);
+    overflow-x:hidden;
+}
+.container{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    margin-top:.5rem;
+
+}
+.calculator{
+    width:300px;
+    height:100%;
+}
+header{
+    display:flex;
+    justify-content:space-between;
+    padding:0 0.35em;
+    margin-bottom: .4rem;
+    align-items: flex-end;
+    font-size: var(--step--2);
+    letter-spacing: 1px;
+    color:var(--clr-header-txt);
+    font-weight: 700;
+}
+.tittle{
+    font-size: var(--step-0);
+}
+.theme-tab{
+    display:flex;
+    gap: 1em;
+    align-items: flex-end;
+}
+.theme-title{
+    text-transform: uppercase;
+    font-size: var(--step--2);
+    font-weight: 200;
+}
+.theme-number{
+    display:flex;
+    justify-content:space-around;
+    align-items: center;
+    font-size: var(--step--2);
+    font-weight: 200;
+}
+.theme-picker > fieldset{
+    border:none;
+    background-color:var(--clr-toggle-keypad-background);
+    padding:3px 10px;
+    border-radius: 50vmax;
+}
+.theme-picker input[type="radio"]{
+    appearance: none;
+    cursor: pointer;
+    width:.75rem;
+    height:.75rem;
+    border-radius: 50%;
+}
+.theme-picker input[type="radio"]#theme-one:checked{
+    background:hsl(6, 63%, 50%);
+}
+.theme-picker input[type="radio"]#theme-two:checked {
+    background:hsl(25, 98%, 40%);
+}
+.theme-picker input[type="radio"]#theme-three:checked {
+    background:hsl(176, 100%, 44%);
+}
+
+.display{
+    display:flex;
+    align-items: center;
+    justify-content: end;
+    background:var(--clr-screen-background);
+    color:var(--clr-text-Very-dark-grayish-blue);
+    width: 100%;
+    height: 60px;
+    margin-bottom:0.5em;
+    border-radius:5px;
+    padding-inline:1rem;
+    font-size: 2rem;
+    font-weight: 700;
+    overflow: hidden;
+}
+.calculator-buttons{
+    background:var(--clr-toggle-keypad-background);
+    height:300px;
+    width:100%;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    place-items: center;
+    border-radius: 5px;
+    padding: .75rem;
+}
+button{
+    display:inline-block;
+    background-color:var(--clr-key-background);
+    color:var(--clr-text-Very-dark-grayish-blue);
+    outline: none;
+    border-radius:5px;
+    outline: none;
+    border: none;
+    width:60px;
+    height:35px;
+    font-size: 1.3rem;
+    font-weight:700;
+    cursor: pointer;
+    box-shadow: 0px  3px 0px var(--clr-boxshadow-1);
+}
+button:hover{
+    background: var(--clr-hover-btn);
+}
+.equals,
+.reset{
+    grid-column:span 2;
+    width:93%;
+    background-color: var(--clr-key-background-toggle);
+    color:var(--clr-large-btn);
+    box-shadow: 0px 3px 0px var(--clr-boxshadow-2);
+}
+.equals:hover{
+    background: var(--clr-hover-equal-btn);
+}
+.reset,
+.delete{
+    font-size:1.1rem;
+    background-color: var(--clr-equal-key-background);
+    color: var(--clr-text-White);
+    box-shadow: 0px 3px 0px var(--clr-boxshadow-3);
+}
+.reset:hover,
+.delete:hover{
+    background: var(--clr-hover-reset-btn);
+}
+.sr-only{
+    clip:rect(0 0 0 0);
+    clip-path: inset(50%);
+    height:1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width:1px;
+}
+
+
+:root:has(#theme-three:checked) {
+    --clr-main-background:hsl(268, 75%, 9%);
+    --clr-screen-background: hsl(268, 71%, 12%);
+    --clr-equal-key-background:hsl(281, 89%, 26%);
+    --clr-key-background:hsl(268,47%,21%);
+    --clr-key-background-toggle:hsl(176, 100%, 44%);
+    --clr-toggle-keypad-background:hsl(268, 71%, 12%);
+    --clr-text-White: hsl(0, 0%, 100%);
+    --clr-text-Very-dark-grayish-blue:hsl(52, 100%, 62%);
+    --clr-boxshadow-1: hsl(290, 70%, 36%);
+    --clr-boxshadow-2: hsl(177, 92%, 70%);
+    --clr-boxshadow-3: hsl(285, 91%, 52%);
+    --clr-header-txt: hsl(52, 100%, 62%);
+    --clr-large-btn: hsl(198, 20%, 13%);
+    --clr-hover-btn: hsl(268, 47%, 50%);
+    --clr-hover-equal-btn: hsl(176,100%,70%);
+    --clr-hover-reset-btn: hsl(281, 89%, 50%);;
+}
+:root:has(#theme-two:checked) {
+    --clr-main-background: hsl(222, 26%, 31%);
+    --clr-screen-background: hsl(224, 36%, 15%);
+    --clr-equal-key-background: hsl(225, 21%, 49%);
+    --clr-key-background: hsl(30, 25%, 89%);
+    --clr-key-background-toggle: hsl(6, 63%, 50%);
+    --clr-toggle-keypad-background: hsl(223, 31%, 20%);
+    --clr-text-White: hsl(0, 0%, 100%);
+    --clr-text-Very-dark-grayish-blue: hsl(221, 14%, 31%);
+    --clr-boxshadow-1: hsl(28, 16%, 65%);
+    --clr-boxshadow-2: hsl(6, 70%, 34%);
+    --clr-boxshadow-3: hsl(224, 28%, 35%);
+    --clr-hover-btn: hsl(0, 0%, 100%);
+    --clr-hover-equal-btn: hsl(6, 63%, 60%);
+    --clr-hover-reset-btn: hsl(225, 21%, 60%);
+    --clr-header-txt: hsl(0, 0%, 100%);
+    --clr-large-btn: hsl(0, 0%, 100%);
+}
+
+@media (prefers-color-scheme: light){
+    :root {
+            --clr-main-background: hsl(0, 0%, 90%);
+            --clr-screen-background: hsl(0, 0%, 93%);
+            --clr-equal-key-background: hsl(185, 42%, 37%);
+            --clr-key-background: hsl(45, 7%, 89%);
+            --clr-key-background-toggle: hsl(25, 98%, 40%);
+            --clr-toggle-keypad-background: hsl(0, 5%, 81%);
+            --clr-text-White: hsl(0, 0%, 100%);
+            --clr-text-Very-dark-grayish-blue: hsl(60, 10%, 19%);
+            --clr-boxshadow-1: hsl(35, 11%, 61%);
+            --clr-boxshadow-2: hsl(25, 99%, 27%);
+            --clr-boxshadow-3: hsl(185, 58%, 25%);
+            --clr-header-txt: hsl(60, 10%, 19%);
+            --clr-large-btn: hsl(0, 0%, 100%);
+            --clr-hover-btn: hsl(45, 7%, 95%);
+            --clr-hover-equal-btn: hsl(25, 98%, 50%);
+            --clr-hover-reset-btn: hsl(185, 42%, 50%);
+    
+        }
+    
+}
